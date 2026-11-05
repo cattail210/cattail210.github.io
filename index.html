@@ -1,13 +1,39 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title></title>
-        <link rel="icon" type="image/x-icon" href="">
-        <link rel="stylesheet" href="">
-    </head>
-    <body>
-        <h1>html</h1>
-    </body>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Drive</title>
+    <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+    <link rel="stylesheet" href="style/globaldesign.css">
+    <link rel="stylesheet" href="style/contentdefault.css"
+</head>
+<body>
+    <div class = "header">
+        <p>tailnet homepage</p>
+    </div>
+    <div class="sidebar" id="site-sidebar">
+        <a href="index.html"></a><img src="images/lain.png"></a>
+        <a href="pages/recipes.html"><button>Recipes</button></a>
+        <a href=""><button>Button 2</button></a>
+        <a href=""><button>Button 3</button></a>
+        <a href=""><button>Button 4</button></a>
+    </div>
+    <button class="sidebar-toggle" type="button" aria-label="Collapse sidebar" aria-controls="site-sidebar" aria-expanded="true" title="Collapse sidebar">
+        <span aria-hidden="true">☰</span>
+    </button>
+    <script>
+        const sidebar = document.getElementById('site-sidebar');
+        const sidebarToggle = document.querySelector('.sidebar-toggle');
+
+        sidebarToggle.addEventListener('click', () => {
+            const isExpanded = sidebarToggle.getAttribute('aria-expanded') === 'true';
+            document.body.classList.toggle('sidebar-collapsed', isExpanded);
+            sidebarToggle.setAttribute('aria-expanded', String(!isExpanded));
+            sidebarToggle.setAttribute('aria-label', isExpanded ? 'Expand sidebar' : 'Collapse sidebar');
+            sidebarToggle.title = isExpanded ? 'Expand sidebar' : 'Collapse sidebar';
+            sidebar.inert = isExpanded;
+        });
+    </script>
+</body>
 </html>
